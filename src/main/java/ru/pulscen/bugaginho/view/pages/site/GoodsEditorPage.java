@@ -16,13 +16,13 @@ public class GoodsEditorPage {
 
     private WebDriver driver;
 
-	@FindBy(css = ".js-actualize-button[type='button']")
-	public WebElement confirmRelevance;
+    @FindBy(css = ".js-actualize-button[type='button']")
+    public WebElement confirmRelevance;
 
-	public GoodsEditorPage(WebDriver driver) {
+    public GoodsEditorPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-	}
+    }
 
     public void openOnSite(String shopUrl) {
         this.driver.get(appendIfMissing(shopUrl, "/") + "predl/binds");

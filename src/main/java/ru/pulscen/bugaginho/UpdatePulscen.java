@@ -33,12 +33,11 @@ public class UpdatePulscen {
             FirefoxDriver driver = new FirefoxDriver();
             try {
                 driver.get(AUTH_URL);
-               new LoginPage(driver).login(user);
+                new LoginPage(driver).login(user);
 
-                for (String url : new DashboardPage(driver).getSiteUrls().stream().filter(s -> s.contains("www.avia-steel.ru")).collect(Collectors.toList())) {
+                for (String url : new DashboardPage(driver).getSiteUrls()) {
                     try {
-
-                     GoodsEditorPage editor = new GoodsEditorPage(driver);
+                        GoodsEditorPage editor = new GoodsEditorPage(driver);
                         editor.openOnSite(url);
                         //обход бага кросcдоменной авторизации - с первого раза не авторизует на другом домене
                         if (!url.contains("pulscen")) {
@@ -46,17 +45,17 @@ public class UpdatePulscen {
                             driver.navigate().refresh();
                         }
                         editor.refreshDates();
-                } catch(Exception e){
-                    log.error("Cannot update company " + url, e);
+                    } catch (Exception e) {
+                        log.error("Cannot update company " + url, e);
+                    }
                 }
+            } catch (Exception e) {
+                log.error("Unexpected error by user " + user.getLogin(), e);
+                throw e;
+            } finally {
+                driver.quit();
             }
-        } catch(Exception e){
-            log.error("Unexpected error by user " + user.getLogin(), e);
-            throw e;
-        } finally{
-            driver.quit();
         }
     }
-}
 
 }

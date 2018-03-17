@@ -15,14 +15,14 @@ public class DashboardPage {
 
     private WebDriver driver;
 
-	@FindBy(className = "cii-title")
-	public List<WebElement> companyTitles;
+    @FindBy(className = "cii-title")
+    public List<WebElement> companyTitles;
 
-	public DashboardPage(WebDriver driver) {
+    public DashboardPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 
-	}
+    }
 
     public List<String> getSiteUrls() {
         return new WebDriverWait(driver, 30).until(visibilityOfAllElements(companyTitles)).stream()

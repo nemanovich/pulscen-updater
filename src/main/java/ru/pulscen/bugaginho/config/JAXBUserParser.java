@@ -6,6 +6,7 @@ import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
@@ -19,7 +20,7 @@ public class JAXBUserParser {
             JAXBContext jaxbContext = JAXBContext.newInstance(users.getClass().getPackage().getName());
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = sf.newSchema(new File(Users.class.getClassLoader().getResource("Users.xsd").getFile()));
+            Schema schema = sf.newSchema(new StreamSource(Users.class.getClassLoader().getResourceAsStream("Users.xsd")));
             unmarshaller.setSchema(schema);
             JAXBElement<Users> JAXBusers;
 
