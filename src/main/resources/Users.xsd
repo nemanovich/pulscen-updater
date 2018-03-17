@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="generated/usersXMLSchema" elementFormDefault="qualified"
+        attributeFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="generated/usersXMLSchema">
+    <complexType name="User">
+        <sequence></sequence>
+        <attribute name="url" type="string"></attribute>
+        <attribute name="login" type="string"></attribute>
+        <attribute name="password" type="string"></attribute>
+    </complexType>
+
+    <element name="root" type="tns:Users"></element>
+
+    <complexType name="Users">
+        <sequence>
+            <element name="users" type="tns:User" maxOccurs="unbounded"
+                     minOccurs="1"></element>
+        </sequence>
+    </complexType>
+
+</schema>
