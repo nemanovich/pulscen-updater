@@ -1,19 +1,15 @@
 package ru.pulscen.bugaginho.config;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import ru.pulscen.bugaginho.Users;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-import ru.pulscen.bugaginho.Users;
+import java.io.File;
+import java.io.FileInputStream;
 
 
 public class JAXBUserParser {

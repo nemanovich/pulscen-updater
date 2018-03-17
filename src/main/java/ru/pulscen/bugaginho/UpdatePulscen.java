@@ -2,20 +2,16 @@ package ru.pulscen.bugaginho;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
-import java.io.IOException;
-import java.util.stream.Collectors;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.pulscen.bugaginho.User;
-import ru.pulscen.bugaginho.Users;
 import ru.pulscen.bugaginho.config.JAXBUserParser;
 import ru.pulscen.bugaginho.view.pages.portal.DashboardPage;
 import ru.pulscen.bugaginho.view.pages.portal.LoginPage;
 import ru.pulscen.bugaginho.view.pages.site.GoodsEditorPage;
+
+import java.io.IOException;
+import java.util.stream.Collectors;
 
 public class UpdatePulscen {
 
