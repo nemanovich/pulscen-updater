@@ -11,7 +11,6 @@ import ru.pulscen.bugaginho.view.pages.portal.LoginPage;
 import ru.pulscen.bugaginho.view.pages.site.GoodsEditorPage;
 
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 public class UpdatePulscen {
 
