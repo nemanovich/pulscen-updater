@@ -40,7 +40,7 @@ public class UpdatePulscen {
                         editor.openOnSite(url);
                         //обход бага кросcдоменной авторизации - с первого раза не авторизует на другом домене
                         if (!url.contains("pulscen")) {
-                            Thread.sleep(1_000);
+                            Thread.sleep(5_000);
                             driver.navigate().refresh();
                         }
                         editor.refreshDates();
