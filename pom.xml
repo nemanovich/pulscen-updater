@@ -4,7 +4,7 @@
 
     <groupId>ru.pulscen.bugaginho</groupId>
     <artifactId>pulscen-updater</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
 
     <name>pulscen-updater</name>
     <description>Актуализация прайс-листов на портале pulscen.ru</description>
