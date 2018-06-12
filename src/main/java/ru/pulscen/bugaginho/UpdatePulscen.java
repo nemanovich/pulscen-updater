@@ -38,11 +38,6 @@ public class UpdatePulscen {
                     try {
                         GoodsEditorPage editor = new GoodsEditorPage(driver);
                         editor.openOnSite(url);
-                        //обход бага кросcдоменной авторизации - с первого раза не авторизует на другом домене
-                        if (!url.contains("pulscen")) {
-                            Thread.sleep(5_000);
-                            driver.navigate().refresh();
-                        }
                         editor.refreshDates();
                     } catch (Exception e) {
                         log.error("Cannot update company " + url, e);

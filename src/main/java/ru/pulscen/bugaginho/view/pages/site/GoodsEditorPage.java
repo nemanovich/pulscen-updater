@@ -1,6 +1,7 @@
 package ru.pulscen.bugaginho.view.pages.site;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,10 @@ public class GoodsEditorPage {
 
     private WebDriver driver;
 
+
+    @FindBy(className = "error-block")
+    public WebElement errorBlock;
+
     @FindBy(css = ".js-actualize-button[type='button']")
     public WebElement confirmRelevance;
 
@@ -26,6 +31,19 @@ public class GoodsEditorPage {
 
     public void openOnSite(String shopUrl) {
         this.driver.get(appendIfMissing(shopUrl, "/") + "predl/binds");
+
+        //обход бага кросcдоменной авторизации - с первого раза не авторизует на другом домене
+        new WebDriverWait(driver, 90)
+                .until((driver) -> {
+                    try {
+                        if (errorBlock.getText().contains("Ошибка 403")) {
+                            driver.navigate().refresh();
+                        }
+                        return !errorBlock.getText().contains("Ошибка 403");
+                    } catch (NoSuchElementException e) {
+                        return true;
+                    }
+                });
     }
 
     public void refreshDates() {

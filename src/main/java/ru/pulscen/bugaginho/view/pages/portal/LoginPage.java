@@ -19,13 +19,12 @@ public class LoginPage {
     @FindBy(className = "js-input-password-auth")
     public WebElement passwordInput;
 
-    @FindBy(className = "apress-button")
-    public WebElement submitButton;
+    @FindBy(css = ".js-button-submit > .sign-in")
+    public WebElement signIn;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
     }
 
     public void login(User user) {
@@ -33,6 +32,6 @@ public class LoginPage {
         loginInput.sendKeys(user.getLogin());
         passwordInput.clear();
         passwordInput.sendKeys(user.getPassword());
-        submitButton.click();
+        new WebDriverWait(driver, 30).until(visibilityOf(signIn)).click();
     }
 }
